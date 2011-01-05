@@ -20,6 +20,13 @@ package unitsTests.testCases
 			Assert.assertEquals(rb.getString("lib_name"), "Resource Manager");
 		}
 		
+		[Test(expects="Error")]
+		public function testGetStringError():void
+		{
+			var rb:ResourceBundle = new ResourceBundle("testId", xml, new XMLResourceParser());
+			rb.getString("some_rubbish");
+		}
+		
 		[Test]
 		public function testGetInt():void
 		{
@@ -27,11 +34,25 @@ package unitsTests.testCases
 			Assert.assertStrictlyEquals(rb.getInt("int_test"), 5);
 		}
 		
+		[Test(expects="Error")]
+		public function testGetIntError():void
+		{
+			var rb:ResourceBundle = new ResourceBundle("testId", xml, new XMLResourceParser());
+			rb.getInt("some_rubbish");
+		}
+		
 		[Test]
 		public function testGetNumber():void
 		{
 			var rb:ResourceBundle = new ResourceBundle("testId", xml, new XMLResourceParser());
 			Assert.assertStrictlyEquals(rb.getNumber("number_test"), 3.14);
+		}
+		
+		[Test(expects="Error")]
+		public function testGetNumberError():void
+		{
+			var rb:ResourceBundle = new ResourceBundle("testId", xml, new XMLResourceParser());
+			rb.getNumber("some_rubbish");
 		}
 		
 		[Test]

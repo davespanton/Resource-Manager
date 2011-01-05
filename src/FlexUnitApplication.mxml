@@ -9,31 +9,12 @@
 			   minWidth="955" minHeight="600" creationComplete="onCreationComplete()">
 	<fx:Script>
 		<![CDATA[
-			import unitsTests.testCases.ResourceBundleTest;
-			import unitsTests.testCases.XMLResourceParserTest;
-			import org.flexunit.runner.Request;
-			import unitsTests.testCases.ResourceManagerTest;
+			import unitsTests.testSuites.TestSuite;
 			
 			public function currentRunTestSuite():Array
 			{
 				var testsToRun:Array = new Array();
-				
-				testsToRun.push(Request.methods(unitsTests.testCases.ResourceManagerTest,["testGetBundle",
-					"testRemoveBundle",
-					"testGetString",
-					"testAddBundle",
-					"testGetInt",
-					"testResourceManager",
-					"testGetInstance"]));
-				
-				testsToRun.push(Request.methods(unitsTests.testCases.XMLResourceParserTest,["testParse"]));
-				
-				testsToRun.push(Request.methods(unitsTests.testCases.ResourceBundleTest,["testGetInt",
-					"testResourceBundle",
-					"testGetString",
-					"testLocale",
-					"testGetNumber",
-					"testId"]));
+				testsToRun.push(unitsTests.testSuites.TestSuite);
 				return testsToRun;
 			}
 			

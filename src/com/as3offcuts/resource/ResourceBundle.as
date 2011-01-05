@@ -1,5 +1,7 @@
 package com.as3offcuts.resource
 {
+	import com.as3offcuts.parsers.IParser;
+
 	/**
 	 * The <code>ResourceBundle</code> class is a collection of data relating to resources that can be used in 
 	 * an application. 
@@ -10,7 +12,7 @@ package com.as3offcuts.resource
 	 * <p>The <code>ResourceBundle</code> required an id, a data object and an <code>IParser</code> that can parse the data. 
 	 * It then provides methods to retrieve data by its id key as typed values.</p>
 	 * 
-	 * <p>The <code>ResourceBundle</code> can also contain a locale value. This is optional, but can be used to seperate 
+	 * <p>The <code>ResourceBundle</code> can also contain a <code>locale</code> value. This is optional, but can be used to seperate 
 	 * bundles that for example have the same id value into different locales.</p>
 	 * 
 	 * <p>Although designed to be used with the <code>ResourceManager</code> class, there is no dependancy upon doing so.</p> 
@@ -47,7 +49,7 @@ package com.as3offcuts.resource
 		}
 		
 		/**
-		 * The locale of this <code>ResourceBundle</code>, as supplied by the passed data during construction.
+		 * The locale of this <code>ResourceBundle</code>, as supplied by the data supplied during construction.
 		 */
 		public function get locale():String
 		{
@@ -71,38 +73,71 @@ package com.as3offcuts.resource
 		}
 		
 		/**
+		 * Returns the <code>String</code> value for the passed <code>name</code> argument.
 		 * 
+		 * @param	The identifying name of the <code>String</code> property to retrieve.
+		 * 
+		 * @return 	String	The value associated with the passed name.
+		 * 
+		 * @throws	Error	If the passed name isn't found.
 		 */
 		public function getString( name:String ):String
 		{
 			if( data.hasOwnProperty( name ) )
 				return data[name].toString();
 			else 
-				return null;
+				throw new Error( "Property " + name + " not found." );
 		}
 		
+		/**
+		 * Returns the <code>int</code> value for the passed <code>name</code> argument.
+		 * 
+		 * @param	The identifying name of the <code>int</code> property to retrieve.
+		 * 
+		 * @return 	String	The value associated with the passed name.
+		 * 
+		 * @throws	Error	If the passed name isn't found.
+		 */
 		public function getInt( name:String ):int
 		{
 			if( data.hasOwnProperty( name ) )
 				return data[name] as int;
 			else
-				return NaN;
+				throw new Error( "Property " + name + " not found." );
 		}
 		
+		/**
+		 * Returns the <code>Number</code> value for the passed <code>name</code> argument.
+		 * 
+		 * @param	The identifying name of the <code>Number</code> property to retrieve.
+		 * 
+		 * @return 	String	The value associated with the passed name.
+		 * 
+		 * @throws	Error	If the passed name isn't found.
+		 */
 		public function getNumber( name:String ):Number
 		{
 			if( data.hasOwnProperty( name ) )
 				return data[name] as Number;
 			else
-				return NaN;
+				throw new Error( "Property " + name + " not found." );
 		}
 		
+		/**
+		 * Returns the <code>Object</code> value for the passed <code>name</code> argument.
+		 * 
+		 * @param	The identifying name of the <code>Object</code> property to retrieve.
+		 * 
+		 * @return 	String	The value associated with the passed name.
+		 * 
+		 * @throws	Error	If the passed name isn't found.
+		 */
 		public function getObject( name:String ):Object
 		{
 			if( data.hasOwnProperty( name ) )
 				return data[name];
 			else
-				return null;
+				throw new Error( "Property " + name + " not found." );
 		}
 	}
 }

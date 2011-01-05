@@ -11,7 +11,7 @@ package com.as3offcuts.managers
 	 * <p>Methods are provided to add and remove resource bundles, as well as retrieve values from them in both 
 	 * locale specific and locale transperent ways.
 	 * 
-	 * * @example
+	 * @example
 	 * <listing version="3.0">
 	 * 
 	 * var resourceManager:ResourceManager = ResourceManager.getInstance();
@@ -42,6 +42,9 @@ package com.as3offcuts.managers
 		 */
 		protected var bundles:Array = [];
 		
+		// storage for the locale getter/setter
+		private var _locale:String = Capabilities.language;
+		
 		/**
 		 * Singleton method to return the instance of <code>ResourceManager</code>.
 		 * 
@@ -58,11 +61,15 @@ package com.as3offcuts.managers
 		}
 		
 		/**
-		 * The locale of the current system.
+		 * The locale of the current system. Can be altered to allow different ways of detirmining current locale.
 		 */
 		public function get locale():String
 		{
-			return Capabilities.language;
+			return _locale;
+		}
+		public function set locale( value:String ):void
+		{
+			_locale = value;
 		}
 		
 		/**
@@ -89,8 +96,9 @@ package com.as3offcuts.managers
 		 */
 		public function addBundle( bundle:ResourceBundle ):void
 		{
+			var loc:String = bundle.locale ? bundle.locale : defaultLocale;
 			if( bundle )
-				bundles[ bundle.id + bundle.locale ] = bundle;
+				bundles[ bundle.id + loc ] = bundle;
 		}
 		
 		/**
