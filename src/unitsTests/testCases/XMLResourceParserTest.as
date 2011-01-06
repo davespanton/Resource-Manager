@@ -4,6 +4,7 @@ package unitsTests.testCases
 	
 	import flexunit.framework.Assert;
 	
+	[ExcludeClass]
 	public class XMLResourceParserTest
 	{		
 		[Test]

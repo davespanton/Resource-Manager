@@ -8,6 +8,7 @@ package unitsTests.testCases
 	
 	import flexunit.framework.Assert;
 	
+	[ExcludeClass]
 	public class ResourceManagerTest
 	{	
 		private static const TEST_BUNDLE:String = "testBundle";

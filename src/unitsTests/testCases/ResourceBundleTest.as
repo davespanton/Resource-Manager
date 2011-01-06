@@ -5,6 +5,7 @@ package unitsTests.testCases
 	
 	import flexunit.framework.Assert;
 	
+	[ExcludeClass]
 	public class ResourceBundleTest
 	{		
 		private var xml:XML = 	<resources locale='en_GB'>

@@ -29,7 +29,7 @@ package com.as3offcuts.service
 	 * 
 	 * <p>See documentation for <code>URLLoader</code> for more information on this event.</p>
 	 */
-	[Event(name="securityError", type="flash.events.SecurityErrorEvent")];
+	[Event(name="securityError", type="flash.events.SecurityErrorEvent")]; 
 	
 	/**
 	 * The <code>ServiceHelper</code> class is a base class for creating and populating a resource bundle from a 
@@ -76,7 +76,7 @@ package com.as3offcuts.service
 		 * @param	parser		An <code>IParser</code> instance capable of parsing the returned data.
 		 * @param	url			The url to retrieve data from.
 		 */
-		public function excute( bundleId:String, parser:IParser, url:String ):void
+		public function execute( bundleId:String, parser:IParser, url:String ):void
 		{
 			if( executing ) {
 				throw new Error( "Already executing for id: " + id + ". Can only execute one request as a time." );
