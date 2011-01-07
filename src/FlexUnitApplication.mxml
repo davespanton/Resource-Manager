@@ -9,12 +9,12 @@
 			   minWidth="955" minHeight="600" creationComplete="onCreationComplete()">
 	<fx:Script>
 		<![CDATA[
-			import unitsTests.testCases.ServiceHelperTest;
+			import unitsTests.testSuites.TestSuite;
 			
 			public function currentRunTestSuite():Array
 			{
 				var testsToRun:Array = new Array();
-				testsToRun.push(unitsTests.testCases.ServiceHelperTest);
+				testsToRun.push(unitsTests.testSuites.TestSuite);
 				return testsToRun;
 			}
 			

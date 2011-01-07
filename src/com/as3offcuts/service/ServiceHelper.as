@@ -80,6 +80,7 @@ package com.as3offcuts.service
 		{
 			if( executing ) {
 				throw new Error( "Already executing for id: " + id + ". Can only execute one request as a time." );
+				return;
 			}
 				
 			if( !urlLoader )
@@ -131,6 +132,7 @@ package com.as3offcuts.service
 		{
 			id = null;
 			parser = null;
+			urlLoader = null;
 			executing = false;
 		}
 		
